@@ -7,7 +7,6 @@ public class Kantakasittelija {
 
     public void yhteydenLuonti() {
 
-
         try (Connection con = getConnection()) {
             System.out.println("Yhteys luotu");
             this.con=con;

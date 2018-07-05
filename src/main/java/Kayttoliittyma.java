@@ -57,10 +57,6 @@ public class Kayttoliittyma {
         Kayttaja kayttaja = new Kayttaja(etunimi, sukunimi, osasto, tehtavanimike);
         kayttaja.lisaaTauluun(con);
 
-        /*
-
-
-         */
     }
 
     private void lisaaSeuranta(Scanner lukija, Connection con) throws SQLException {
