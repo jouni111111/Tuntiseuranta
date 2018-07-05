@@ -1,3 +1,7 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class Kayttaja {
     private int id;
     private String etunimi;
@@ -8,17 +12,36 @@ public class Kayttaja {
     public Kayttaja() {
     }
 
-    public Kayttaja(int id, String etunimi, String sukunimi) {
-        this.id = id;
+    public Kayttaja( String etunimi, String sukunimi) {
         this.etunimi = etunimi;
         Sukunimi = sukunimi;
     }
 
-    public Kayttaja(int id, String etunimi, String sukunimi, String osasto) {
-        this.id = id;
+    public Kayttaja( String etunimi, String sukunimi, String osasto) {
         this.etunimi = etunimi;
         Sukunimi = sukunimi;
         this.osasto = osasto;
+    }
+
+    public Kayttaja(String etunimi, String sukunimi, String osasto, String tehtavanimike) {
+        this.etunimi = etunimi;
+        Sukunimi = sukunimi;
+        this.osasto = osasto;
+        this.tehtavanimike = tehtavanimike;
+    }
+
+    public void lisaaTauluun (Connection con) throws SQLException {
+        String query = " insert into kayttaja (etunimi, sukunimi, osasto, tehtavanimike) values  (?, ?, ?, ?)";
+        PreparedStatement stmt = con.prepareStatement(query);
+        String etuNimi = this.getEtunimi();
+        String sukuNimi = this.getSukunimi();
+        String osasto = this.getOsasto();
+        String tehtavaNimike = this.getTehtavanimike();
+        stmt.setString(1, etuNimi);
+        stmt.setString(2, sukuNimi);
+        stmt.setString(3, osasto);
+        stmt.setString(4, tehtavaNimike);
+        stmt.execute();
     }
 
     public int getId() {
@@ -69,4 +92,6 @@ public class Kayttaja {
                 ", Sukunimi='" + Sukunimi + '\'' +
                 '}';
     }
+
+
 }
