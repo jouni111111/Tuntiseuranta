@@ -14,23 +14,20 @@ public class Seuranta {
     public Seuranta() {
     }
 
-    public Seuranta(int id, Date pvm, float tunnit, int kayttajaID) {
-        this.id = id;
+    public Seuranta(Date pvm, float tunnit, int kayttajaID) {
         this.pvm = pvm;
         this.tunnit = tunnit;
         this.kayttajaID = kayttajaID;
     }
 
-    public Seuranta(int id, Date pvm, float tunnit, boolean laskutettava, int kayttajaID) {
-        this.id = id;
+    public Seuranta(Date pvm, float tunnit, boolean laskutettava, int kayttajaID) {
         this.pvm = pvm;
         this.tunnit = tunnit;
         this.laskutettava = laskutettava;
         this.kayttajaID = kayttajaID;
     }
 
-    public Seuranta(int id, Date pvm, float tunnit, String tehtavankuvaus, boolean laskutettava, int kayttajaID) {
-        this.id = id;
+    public Seuranta(Date pvm, float tunnit, String tehtavankuvaus, boolean laskutettava, int kayttajaID) {
         this.pvm = pvm;
         this.tunnit = tunnit;
         this.tehtavankuvaus = tehtavankuvaus;
