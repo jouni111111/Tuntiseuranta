@@ -59,14 +59,16 @@ public class Kayttoliittyma {
          */
     }
 
-    private void lisaaSeuranta(Scanner lukija, Connection con) {
+    private void lisaaSeuranta(Scanner lukija, Connection con) throws SQLException {
 
         System.out.println("Seuravaaksi kirjataan tunnit. Seuraa ohjeita ja kirjoita vaadittavat tiedot. Pakolliset kentät on merkitty * merkillä.\n");
         System.out.print("Päivämäärä(VVVV, KK, PP)*: ");
-        Date pvm = lukija.nextLine();
+        String pvmstr = lukija.nextLine();
+        Date pvm = new Date(0);
+        pvm.valueOf(pvmstr);
 
         System.out.print("Tunnit*: ");
-        String tunnit = lukija.nextLine();
+        float tunnit = Float.parseFloat(lukija.nextLine());
 
         System.out.println("Tehtävänkuvaus: ");
         String kuvaus = lukija.nextLine();
