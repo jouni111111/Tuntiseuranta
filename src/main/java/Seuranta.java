@@ -1,4 +1,7 @@
-import java.util.Date;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.*;
 
 public class Seuranta {
     private int id;
@@ -91,5 +94,15 @@ public class Seuranta {
                 ", tunnit=" + tunnit +
                 ", kayttajaID=" + kayttajaID +
                 '}';
+    }
+    public void lisaaTauluun(Seuranta kirjaus, Connection con) throws SQLException {
+        String sql= "insert into Seuranta(pvm, tunnit, tehtavankuvaus, laskutettava, kayttajaID) values(?,?,?,?,?) ";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setDate(1, kirjaus.getPvm());
+        ps.setFloat(2, kirjaus.getTunnit());
+        ps.setString(3, kirjaus.getTehtavankuvaus());
+        ps.setBoolean(4, kirjaus.isLaskutettava());
+        ps.setInt(5, kirjaus.getKayttajaID());
+        ps.executeUpdate();
     }
 }

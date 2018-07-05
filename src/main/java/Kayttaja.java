@@ -69,4 +69,6 @@ public class Kayttaja {
                 ", Sukunimi='" + Sukunimi + '\'' +
                 '}';
     }
+
+
 }
