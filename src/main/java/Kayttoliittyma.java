@@ -82,7 +82,7 @@ public class Kayttoliittyma {
             Seuranta seuranta = new Seuranta(pvm, tunnit, kuvaus, true, id);
             seuranta.lisaaTauluun(seuranta, con);
         } else {
-            Seuranta seuranta = new Seuranta(1, pvm, tunnit, kuvaus, false, id);
+            Seuranta seuranta = new Seuranta(pvm, tunnit, kuvaus, false, id);
             seuranta.lisaaTauluun(seuranta, con);
         }
 
