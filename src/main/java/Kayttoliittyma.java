@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -34,7 +35,7 @@ public class Kayttoliittyma {
 
     }
 
-    private void teeUusiKayttaja(Scanner lukija) {
+    private void teeUusiKayttaja(Scanner lukija, Connection con) {
 
         System.out.println("Seuravaaksi luodaan uusi käyttäjä. Seuraa ohjeita ja kirjoita vaadittavat tiedot. Pakolliset kentät on merkitty * merkillä.\n");
         System.out.print("Etunimi*: ");
@@ -50,9 +51,47 @@ public class Kayttoliittyma {
         String tehtavanimike = lukija.nextLine();
 
         Kayttaja kayttaja = new Kayttaja(etunimi, sukunimi, osasto, tehtavanimike);
+        kayttaja.lisaaTauluun(con);
 
         /*
 
+
+         */
+    }
+
+    private void lisaaSeuranta(Scanner lukija, Connection con) {
+
+        System.out.println("Seuravaaksi kirjataan tunnit. Seuraa ohjeita ja kirjoita vaadittavat tiedot. Pakolliset kentät on merkitty * merkillä.\n");
+        System.out.print("Päivämäärä(VVVV, KK, PP)*: ");
+        Date pvm = lukija.nextLine();
+
+        System.out.print("Tunnit*: ");
+        String tunnit = lukija.nextLine();
+
+        System.out.println("Tehtävänkuvaus: ");
+        String kuvaus = lukija.nextLine();
+
+        System.out.println("Laskutettava (k/e): ");
+        String boolenarvo = lukija.nextLine();
+        boolenarvo.toLowerCase();
+
+        System.out.println("KäyttäjäID: ");
+        int id = Integer.parseInt(lukija.nextLine());
+
+        if(boolenarvo.equals("k")){
+            Seuranta seuranta = new Seuranta(pvm, tunnit, kuvaus, true, id);
+            seuranta.lisaaTauluun(seuranta, con);
+        } else {
+            Seuranta seuranta = new Seuranta(1, pvm, tunnit, kuvaus, false, id);
+            seuranta.lisaaTauluun(seuranta, con);
+        }
+
+        /*
+private Date pvm;
+    private float tunnit;
+    private String tehtavankuvaus;
+    private boolean laskutettava;
+    private int kayttajaID;
 
          */
     }
