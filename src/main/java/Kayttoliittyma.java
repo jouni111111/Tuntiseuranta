@@ -25,7 +25,11 @@ public class Kayttoliittyma {
 
             //TODO tee switch case tästä
             if (syote == 1) {
-                teeUusiKayttaja(lukija);
+                teeUusiKayttaja(lukija, con);
+            } else if (syote == 2){
+                lisaaSeuranta(lukija, con);
+            } else {
+                System.out.println("LOL");
             }
 
 
@@ -35,7 +39,7 @@ public class Kayttoliittyma {
 
     }
 
-    private void teeUusiKayttaja(Scanner lukija, Connection con) {
+    private void teeUusiKayttaja(Scanner lukija, Connection con) throws SQLException {
 
         System.out.println("Seuravaaksi luodaan uusi käyttäjä. Seuraa ohjeita ja kirjoita vaadittavat tiedot. Pakolliset kentät on merkitty * merkillä.\n");
         System.out.print("Etunimi*: ");
