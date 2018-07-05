@@ -31,7 +31,7 @@ public class Kayttaja {
     }
 
     public void lisaaTauluun (Connection con) throws SQLException {
-        String query = " insert into kayttaja (etunimi, sukunimi, osasto, tehtavanimike) values  (?, ?, ?, ?)";
+        String query = "insert into kayttaja(etunimi, sukunimi, osasto, tehtavanimike) values(?, ?, ?, ?)";
         PreparedStatement stmt = con.prepareStatement(query);
         String etuNimi = this.getEtunimi();
         String sukuNimi = this.getSukunimi();
@@ -41,7 +41,7 @@ public class Kayttaja {
         stmt.setString(2, sukuNimi);
         stmt.setString(3, osasto);
         stmt.setString(4, tehtavaNimike);
-        stmt.execute();
+        stmt.executeUpdate();
     }
 
     public int getId() {
