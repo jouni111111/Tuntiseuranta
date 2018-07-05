@@ -22,5 +22,4 @@ public class Kantakasittelija {
         return con;
     }
 
-
 }
