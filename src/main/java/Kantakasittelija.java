@@ -5,9 +5,10 @@ import java.sql.SQLException;
 public class Kantakasittelija {
     private Connection con;
 
-    public static void yhteydenLuonti() {
+    public void yhteydenLuonti() {
         try (Connection con = getConnection()) {
             System.out.println("Yhteys luotu");
+            this.con=con;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -21,5 +22,5 @@ public class Kantakasittelija {
         return con;
     }
 
-    
+
 }
