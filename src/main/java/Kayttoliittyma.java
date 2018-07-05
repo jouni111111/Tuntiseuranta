@@ -47,15 +47,21 @@ public class Kayttoliittyma {
         System.out.print("Sukunimi*: ");
         String sukunimi = lukija.nextLine();
 
-        System.out.println("Osasto: ");
+        System.out.print("Osasto: ");
         String osasto = lukija.nextLine();
 
-        System.out.println("Tehtavanimike: ");
+        System.out.print("Tehtavanimike: ");
         String tehtavanimike = lukija.nextLine();
 
         Kayttaja kayttaja = new Kayttaja(etunimi, sukunimi, osasto, tehtavanimike);
+
         kayttaja.lisaaTauluun(con);
 
+        System.out.println();
+        System.out.println("Käyttäjän luominen onnistui! Käyttäjä ID:si on " + kayttaja.getId() + ". Laita ID numero talteen.");
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
 
     private void lisaaSeuranta(Scanner lukija, Connection con) throws SQLException {

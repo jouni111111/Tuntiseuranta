@@ -19,7 +19,7 @@ public class Kantakasittelija {
     }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/tuntiseuranta?useSSL=false&serverTimezone=UTC", "root", "salasana");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/tuntiseuranta?useSSL=false&serverTimezone=UTC", "root", "password");
     }
 
     public Connection getCon() {
