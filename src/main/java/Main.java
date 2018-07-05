@@ -4,5 +4,6 @@ public class Main {
 
         Kayttoliittyma kayttis = new Kayttoliittyma();
         kayttis.start(kantakasittelija.getCon());
+
     }
 }
