@@ -10,6 +10,6 @@ public class Main {
 
         Kayttoliittyma kayttis = new Kayttoliittyma();
         kayttis.start(con);
-
+        con.close();
     }
 }
